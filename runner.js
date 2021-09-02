@@ -6,7 +6,13 @@ class Runner {
         this.testFiles = []
     }
 
-    async collectFiles(targetPath) {
+    runtTests = async () => {
+        for (let file of this.testFiles) {
+            require(file.name)
+        }
+    }
+
+     collectFiles = async (targetPath) => {
         const files = await fs.promises.readdir(targetPath)
 
         for (let file of files) {
